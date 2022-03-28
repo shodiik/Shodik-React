@@ -9,7 +9,7 @@ function Track({ image, songName, albumName, artists }) {
             </h3>
             <h3>{albumName}</h3>
         </div>
-        <div className="playlist-actions">
+        <div>
             <button type="button" className="playlist-action">
                 Pilih
             </button>
