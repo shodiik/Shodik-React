@@ -1,18 +1,36 @@
+import { useEffect, useState } from 'react';
 import PlaylistItem from './PlaylistItem';
 
-function playlistContainer({ tracks }) {
- 
+function PlaylistContainer({ tracks }) {
+  const [selectedTracks, setSelectedTracks] = useState([]);
+  const [combinedTracks, setCombinedTracks] = useState([]);
+
+  /**
+   * Given a track, if it's already selected, remove it from the list of selected tracks.
+   * Otherwise, add it to the list of selected tracks
+   */
+  const handleSelectTrack = (track) => {
+    const alreadySelected = selectedTracks.find((t) => t.id === track.id);
+    if (alreadySelected) {
+      setSelectedTracks(selectedTracks.filter((t) => t.id !== track.id));
+    } else {
+      setSelectedTracks([...selectedTracks, track]);
+    }
+  };
+
+  useEffect(() => {
+    const combinedTracksWithSelectedTrack = tracks.map((track) => ({
+      ...track,
+      isSelected: selectedTracks.find((t) => t.id === track.id),
+    }));
+    setCombinedTracks(combinedTracksWithSelectedTrack);
+  }, [selectedTracks, tracks]);
+
   function renderPlaylistItems() {
-    return tracks.map((item) => {
-      const { id, album, name: songName, artists } = item;
+    return combinedTracks.map((item) => {
+      const { id } = item;
       return (
-        <PlaylistItem
-          key={id}
-          image={album.images[0]?.url}
-          songName={songName}
-          albumName={album.name}
-          artists={artists}
-        />
+        <PlaylistItem key={id} track={item} onSelectTrack={handleSelectTrack} />
       );
     });
   }
@@ -20,4 +38,4 @@ function playlistContainer({ tracks }) {
   return <div className="playlist-container">{renderPlaylistItems()}</div>;
 }
 
-export default playlistContainer;
+export default PlaylistContainer;
