@@ -1,43 +1,25 @@
-import { useState, useEffect } from 'react';
-
-import Login from './components/login';
-import Header from './components/header';
-import PlaylistCreator from './components/playlist-creator';
-
-import profileService from './api/profile';
-
-import { isAuth } from './utils/OAuth';
+import React from "react";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route
+} from "react-router-dom";
+import CreatePlaylist from "./Pages/CreatePlaylist";
+import Dashboard from "./Pages/Login";
 
 function App() {
-  const [profile, setProfile] = useState(null);
-
-  const getCurrentUserProfile = async () => {
-    try {
-      const { data } = await profileService.getCurrentUserProfile();
-      setProfile(data);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    if (isAuth) {
-      getCurrentUserProfile();
-    }
-  }, []);
-
-  return (
-    <div className="app">
-      {!isAuth && <Login />}
-      {isAuth && (
-        <>
-          <Header username={profile?.display_name} />
-          <PlaylistCreator userId={profile?.id} />
-        </>
-      )}
-    </div>
-  );
+	return (
+		<Router>
+			<Switch>
+				<Route path="/" exact>
+					<Dashboard/>
+				</Route>
+				<Route path="/create-playlist" exact>
+					<CreatePlaylist/>
+				</Route>
+			</Switch>  
+		</Router>
+	);
 }
 
 export default App;
