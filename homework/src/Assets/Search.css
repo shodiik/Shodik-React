@@ -1,3 +1,5 @@
 .SearchBar {
-    font-size: 10px;
+    font-size: 25%;
+    width: 400px;
+    text-align: left;
 }

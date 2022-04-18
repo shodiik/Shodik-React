@@ -13,7 +13,7 @@ const SPACE_DELIMITER = "%20";
 const SCOPES = ["playlist-modify-private", "user-read-private"];
 const SCOPES_URL_PARAM = SCOPES.join(SPACE_DELIMITER);
 
-function Dashboard() {
+function Login() {
     const { token } = useSelector((state) => state.userToken);
     const dispatch = useDispatch();
 
@@ -51,4 +51,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default Login;

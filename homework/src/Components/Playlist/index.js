@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import "../../Assets/Playlist.css";
+import { Button } from "antd";
 
 PlaylistForm.propTypes = {
 	selectedMusic: PropTypes.any,
@@ -118,8 +119,7 @@ function PlaylistForm ({selectedMusic}) {
 		const playlistId = await createPlaylist(userId);
 		const snapshotId = await addItemsToPlaylist(playlistId);
 		alert(`Yout playlist has been added\nSnapshot: ${snapshotId.snapshot_id}`);
-	};
-    
+	};    
 	return (
 		<>
 			<form className='playlist-form' action="" onSubmit={handleCreatePlaylist}>
@@ -127,7 +127,7 @@ function PlaylistForm ({selectedMusic}) {
 				<input id='input-name' className='input text' onChange={handleFormPlaylist} type="text" name="name" required/>
 				<label htmlFor="input-desc">Playlist Description</label>
 				<textarea id='input-desc' className='input textarea' onChange={handleFormPlaylist} type="textarea" name="description" minLength={10} required/>
-				<input className='input submit' type="submit" value="Tambah Playlist" />
+				<Button size="medium" htmlType="submit">Submit</Button>
 			</form>
 		</>
 	);

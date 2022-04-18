@@ -1,10 +1,13 @@
+@import '~antd/dist/antd.css';
 .App {
   text-align: left;
+text-emphasis: none;
 }
 .musics-wrapper {
   width: 1500px;
 
 }
 .SearchBar {
-  margin: 5px auto; 
+  
+  margin: auto auto; 
 }
