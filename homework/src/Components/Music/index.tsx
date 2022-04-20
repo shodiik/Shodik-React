@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import "../../Assets/Music.css";
 import { Item } from "../../Interface/ISpotifyResponse";
 
