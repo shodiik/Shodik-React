@@ -1,0 +1,37 @@
+.top-wrapper {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.side-info {
+    position: relative;
+    margin: auto 4vw;
+}
+.landing-title {
+    color: #48c7ee;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+.login-info {
+    margin-top: 50px;
+}
+.login {
+    position: absolute;
+    background-color: transparent;
+    background-color: #48c7ee;
+    color: rgb(71, 192, 15);
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    padding: 1vh 2vw;
+    cursor: pointer;
+}
+.login:hover {
+    padding: 1.2vh 2.2vw;
+}
+.side-image {
+    background-image: url(../Assets/Images/BCdashboard.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

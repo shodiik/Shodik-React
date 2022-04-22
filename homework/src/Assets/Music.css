@@ -1,65 +1,93 @@
 .Music {
-    border-radius: 20px;
-    background-color: #181818;
-    color: rgb(177, 110, 3);
+    background-color: #1f1f1f;
+    color: rgb(81, 242, 0);
     float: left;
     padding: 30px;
-    width: 200px;
-    height: 300px;
-    margin: 10px;
+    width: 300px;
+    height: 250px;
     position: relative;
 }
-.music-img img {
-    width: 170px;
-    float: left;
-    border-radius: 10px;
+
+.music-wrapper {
+    display: flex;
 }
-.btn {
+
+.music-info {
+    position: relative;
+    flex-grow: 1;
+    width: 60%;
+    align-self: center;
+    margin-bottom: 37px;
+}
+
+.music-img img {
+    width: 100px;
+    border-radius: 50px;
+}
+
+.music-duration {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.button-wrapper {
     position: absolute;
-    bottom: 30px;
-    left: 30px;
-    width: 150px;
-    height: 30px;
-    border-radius: 110px;
-    border: none;
-}
-.music-title {
-    font-size: 25px;
-    text-align: left;
-    margin-bottom: 20px;
-}
-.music-artist {
-    font-size: 15px;
-    text-align: left;
-    margin-top: 100px;
-    margin-bottom: 200px;
-    margin-left: 0px;
-}
-.select {
-    color: rgb(228, 145, 0);
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: #000000;
-}
-.selected {
-    color: rgb(255, 255, 255);
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: rgb(1, 1, 1);
-    border: solid 2px #cc07cc;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
-
-
-.music-img img {
-    width: 130px;
-
-    border-radius: 10px;
+.btn {
+    justify-content: center;
 }
+
 .title-wrapper {
-    width: 5%;
+    width: 75%;
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.music-title {
+    font-size: 18px;
+    margin-bottom: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.music-title:not(:hover) {
+    text-overflow: ellipsis;
+}
+
+.music-title:hover, .music-title:focus {
+    display: inline-block;
+    animation-name: scroll-left;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+@keyframes scroll-left {
+    0% {
+        overflow: visible;
+        right: 0px;
+        transform: translateX(0%);
+    }
+    90%,
+    100% {
+        overflow: visible;
+        right: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+.music-artist {
+    text-align: center;
+    width: 80%;
+    font-size: 15px;
+    margin: 5px auto 0 auto;
 }

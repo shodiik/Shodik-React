@@ -25,7 +25,7 @@ function SearchBar() {
 		const keywords = searchKey;
 		const type = "track";
 		try {
-			const response = await fetch(`${url}?q=${keywords}&type=${type}&limit=12`, {
+			const response = await fetch(`${url}?q=${keywords}&type=${type}&limit=15`, {
 				headers: {
 					"Authorization" : "Bearer " + token
 				}
@@ -52,7 +52,7 @@ function SearchBar() {
 	return (
 		<>
 			<form className='SearchBar' onSubmit={handleSearch}>
-				<Search placeholder="input search text" onChange={handleInput} />
+				<Search placeholder="Search your musics..." onChange={handleInput} />
 			</form>
 		</>
 	);
